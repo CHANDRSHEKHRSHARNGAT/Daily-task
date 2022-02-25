@@ -1,1 +1,1 @@
-# php-quicsolve
+# php-quicsolv
