@@ -51,28 +51,48 @@ function fill_unit_select_box($connect)
      </div>
     </div>
     <br><br>
-
     </form>
     <!----display table--->
-    <div class="table-responsive">
-      <h3 align="center"> View Grocery store Details</h3>
-    <table id="insert_data" class="table table-bordered table-striped">
-     <thead>
-      <tr>
-      <th>ID</th>
-      <th>ORDER ID</th>
-       <th> Item Name</th>
-       <th>Quantity</th>
-       <th>Unit</th>
-      </tr>
-     </thead>
-    
-     <tbody id="table_data">
 
-  
-     </tbody>
-    </table>
+  <div class="container">
+  <h3 align="center">Grocery Item Details</h3><br>
+  <?php
+
+  $sql ="Select * from tbl_order_items";
+  $result=$connect->query($sql);
+  if($result->rowCount()>0){
+
+    echo '<table class="table table-bordered">';
+    echo "<thead>";
+    echo "<tr>";
+    echo "<th>ID</th>";
+    echo "<th>ORDER ID</th>";
+    echo "<th>Item Name</th>";
+    echo "<th>Quantity</th>";
+    echo "<th>Unit</th>";
+    echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";
+    while($row=$result->fetch(PDO::FETCH_ASSOC)){
+
+      echo "<tr>";
+      echo "<td>" .$row["order_items_id"]."</td>";
+      echo "<td>" .$row["order_id"]."</td>";
+      echo "<td>" .$row["item_name"]."</td>";
+      echo "<td>" .$row["item_quantity"]."</td>";
+      echo "<td>" .$row["item_unit"]."</td>";
+       echo "</tr>";
+    }
+    echo "</tbody>";
+    echo "</table>";
+  }else{
+    echo  "0 Results";
+  }
+  ?>
+  </div>
      </div>
+
+     
  </body>
 </html>
 
@@ -135,7 +155,6 @@ $(document).ready(function(){
     url:"insert.php",
     method:"POST",
     data:form_data,
-    dataType:"json",
     success:function(data)
     {
      if(data == 'ok')
@@ -149,9 +168,24 @@ $(document).ready(function(){
   else
   {
    $('#error').html('<div class="alert alert-danger">'+error+'</div>');
-   alert(24334);
+
   }
  });
  
 });
+
+//display table
+$('#insert_data').click(function(){
+
+  $.ajax({
+ url:'insert.php',
+ type:'post',
+
+ success:function(responsedata){
+
+      $('#response').html(responsedata)
+ }
+  });
+});
+
 </script>
