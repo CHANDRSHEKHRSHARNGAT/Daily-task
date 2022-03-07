@@ -1,6 +1,5 @@
 
 <?php
-//index.php
 
 $connect = new PDO("mysql:host=localhost;dbname=testing4", "root", "");
 function fill_unit_select_box($connect)
