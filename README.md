@@ -1,1 +1,1 @@
-# php-quicsolv-Daily-task
+quicsolv-Daily-task
