@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+
+    <script>
+function loadData(){
+
+}
+    </script>
+
+
+    <title>Contact form</title>
+    <link type="text/css" rel="stylesheet" href="style.css"
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>
+    <h1>Contact form</h1>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="name">Name :</label>
+                        <input type="text" name="name" id="name" onblur="validatetext(this.id)">
+                    </div>
+                    <div>
+                        <label for="email">Email :</label>
+                        <input type="text" name="email" autocomplete ="off" id="email" onblur="validateEmail(this.id)" >
+                    </div>
+                    <div>
+                        <label for="phone">Phone:</label>
+                        <input type="number" name="phone" id="phone">
+                    </div>
+                 
+                    <div>
+                        <label for="adress">Adress</label>
+                        <input type="text" name="adress" id="adress">
+                    </div>
+                   <div>
+                        <label for="city">City  ::</label>
+                        <input type="text" name="city" id="city">
+                    </div>
+ Gender: 
+          
+
+
+    <input type="radio" name="gender" value="male" onchange="clickme(this)"/>Male
+    <input type="radio" name="gender" value="female" onchange="clickme(this)"/>Female <br/><br/>
+
+
+
+
+
+
+country: <select>
+        <option selected disabled>--Select Country--</option>
+        <option>India</option>
+        <option>Chicago</option>
+        <option>Los Angeles</option>
+        <option>Washington DC</option>
+    </select> </select><br/><br/>
+
+ Hobbies: 
+            <input type="checkbox" name="hobbies" value="dancing"/>Dancing
+            <input type="checkbox" name="hobbies" value="reading"/>Reading
+            <input type="checkbox" name="hobbies" value="eating"/>Eating
+            <input type="checkbox" name="hobbies" value="singing"/>Singing
+            <input type="checkbox" name="hobbies" value="sleeping"/>Sleeping<br/><br/>
+                    <div class="form_action--button">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+
+               
+                    <table class="list" id="storeList">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>phone</th>
+                                <th>Adress</th>
+                                <th>city</th>
+                             <th>Gender</th>
+                                <th>Country</th>
+                                <th>Hobbies</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+            
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
