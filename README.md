@@ -1,1 +1,1 @@
-quicsolv-Daily-task
+Daily-task
